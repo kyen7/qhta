@@ -26,4 +26,6 @@ Best,
 Shannon Hayes  
 Quebec House Tenant Association President
 
+
+  
 *Join the listserv [here](https://quebechouse.groups.io/)*
