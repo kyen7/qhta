@@ -25,3 +25,5 @@ Thank you for [signing the form](https://forms.gle/PmpsvXM5BoxfqXyD7) and have a
 Best,  
 Shannon Hayes  
 Quebec House Tenant Association President
+
+*Join the listserv [here](https://quebechouse.groups.io/)*
