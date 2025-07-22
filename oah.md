@@ -20,8 +20,6 @@ If we don’t receive your signature by July 31, we will be knocking on your doo
  
 Thank you for [signing the form](https://forms.gle/PmpsvXM5BoxfqXyD7) and have a great night!
  
-Best,
-
-Shannon Hayes
-
+Best,  
+Shannon Hayes  
 Quebec House Tenant Association President
