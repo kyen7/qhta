@@ -1,6 +1,6 @@
 # Quebec House Tenant Association
 
-Hello neighbors!
+Hello neighbors test
 
  
 As part of the work we’re doing representing the best interests of tenants, in January QHTA filed a tenant petition with the DC Rental Accommodations Division and Office of Administrative Hearings (OAH) to hold Quebec House accountable under DC rent control laws for failing to provide the amenities we’re paying for. We're working on reaching a settlement that could provide financial compensation to each unit as well as concessions to improve overall conditions by management. However, **we need signatures from each unit (all lease-signers signing at once) to include you in a potential settlement--or the award from a hearing, if it comes to that.**
