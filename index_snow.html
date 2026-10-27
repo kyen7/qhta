@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quebec House Thank You Fund</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2328;
+      --muted: #59636e;
+      --border: #d1d9e0;
+      --code-bg: #f6f8fa;
+      --link: #0969da;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --muted: #9198a1;
+        --border: #3d444d;
+        --code-bg: #151b23;
+        --link: #4493f8;
+      }
+    }
+    :root { --page: #e3eefa; --snow: #7fb0e6; }
+    @media (prefers-color-scheme: dark) {
+      :root { --page: #070b14; --snow: #ffffff; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: var(--page);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .readme {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    /* Falling snowflakes */
+    .snow {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .snow span {
+      position: absolute;
+      top: -10vh;
+      left: var(--x);
+      font-size: var(--s);
+      color: var(--snow);
+      opacity: var(--o);
+      line-height: 1;
+      animation: fall var(--d) linear var(--delay) infinite;
+    }
+    @keyframes fall {
+      from { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(var(--drift), 60vh) rotate(180deg); }
+      to   { transform: translate(0, 120vh) rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .snow { display: none; }
+    }
+    .flakes {
+      margin: 0 0 8px;
+      color: var(--link);
+      text-align: center;
+      letter-spacing: 0.6em;
+      font-size: 0.9em;
+      user-select: none;
+    }
+    h1, h2 {
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    h1 { font-size: 2em; margin: 0 0 16px; }
+    h2 { font-size: 1.5em; margin: 24px 0 16px; }
+    p, ul, ol { margin: 0 0 16px; }
+    ul, ol { padding-left: 2em; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    blockquote {
+      margin: 0 0 16px;
+      padding: 0 1em;
+      color: var(--muted);
+      border-left: 0.25em solid var(--border);
+    }
+    code {
+      padding: 0.2em 0.4em;
+      background: var(--code-bg);
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 85%;
+    }
+    hr { height: 1px; margin: 24px 0; background: var(--border); border: 0; }
+    @media (max-width: 600px) { .readme { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <div class="snow" aria-hidden="true">
+    <span style="--x:1.4vw;--s:16px;--d:15.3s;--delay:-0.7s;--drift:-40px;--o:0.61">&#10052;&#xFE0E;</span>
+    <span style="--x:4.4vw;--s:26px;--d:13.4s;--delay:-1.2s;--drift:40px;--o:0.48">&#10052;&#xFE0E;</span>
+    <span style="--x:8.4vw;--s:22px;--d:11.7s;--delay:-6.6s;--drift:-25px;--o:0.73">&#10052;&#xFE0E;</span>
+    <span style="--x:13.7vw;--s:14px;--d:17.3s;--delay:-6.9s;--drift:-25px;--o:0.47">&#10052;&#xFE0E;</span>
+    <span style="--x:18.4vw;--s:18px;--d:15.6s;--delay:-8.4s;--drift:25px;--o:0.7">&#10052;&#xFE0E;</span>
+    <span style="--x:21.7vw;--s:14px;--d:17.4s;--delay:-11.1s;--drift:25px;--o:0.49">&#10052;&#xFE0E;</span>
+    <span style="--x:25.7vw;--s:26px;--d:11.7s;--delay:-2.4s;--drift:40px;--o:0.8">&#10052;&#xFE0E;</span>
+    <span style="--x:28.7vw;--s:22px;--d:15.0s;--delay:-3.7s;--drift:-25px;--o:0.76">&#10052;&#xFE0E;</span>
+    <span style="--x:31.9vw;--s:26px;--d:14.3s;--delay:-7.1s;--drift:25px;--o:0.78">&#10052;&#xFE0E;</span>
+    <span style="--x:35.9vw;--s:14px;--d:12.3s;--delay:-5.1s;--drift:25px;--o:0.52">&#10052;&#xFE0E;</span>
+    <span style="--x:40.4vw;--s:14px;--d:21.6s;--delay:-1.7s;--drift:25px;--o:0.6">&#10052;&#xFE0E;</span>
+    <span style="--x:43.8vw;--s:22px;--d:17.4s;--delay:-7.9s;--drift:-40px;--o:0.88">&#10052;&#xFE0E;</span>
+    <span style="--x:48.0vw;--s:30px;--d:11.7s;--delay:-8.6s;--drift:25px;--o:0.74">&#10052;&#xFE0E;</span>
+    <span style="--x:53.4vw;--s:22px;--d:14.1s;--delay:-5.4s;--drift:25px;--o:0.46">&#10052;&#xFE0E;</span>
+    <span style="--x:55.7vw;--s:16px;--d:17.7s;--delay:-8.7s;--drift:-25px;--o:0.8">&#10052;&#xFE0E;</span>
+    <span style="--x:58.5vw;--s:16px;--d:15.4s;--delay:-14.1s;--drift:40px;--o:0.49">&#10052;&#xFE0E;</span>
+    <span style="--x:63.3vw;--s:26px;--d:14.1s;--delay:-1.9s;--drift:40px;--o:0.84">&#10052;&#xFE0E;</span>
+    <span style="--x:66.6vw;--s:22px;--d:21.9s;--delay:-15.0s;--drift:40px;--o:0.88">&#10052;&#xFE0E;</span>
+    <span style="--x:70.1vw;--s:16px;--d:12.7s;--delay:-8.4s;--drift:-40px;--o:0.67">&#10052;&#xFE0E;</span>
+    <span style="--x:75.3vw;--s:18px;--d:14.1s;--delay:-2.1s;--drift:25px;--o:0.72">&#10052;&#xFE0E;</span>
+    <span style="--x:78.3vw;--s:16px;--d:18.6s;--delay:-9.6s;--drift:-40px;--o:0.66">&#10052;&#xFE0E;</span>
+    <span style="--x:83.8vw;--s:30px;--d:19.8s;--delay:-7.8s;--drift:40px;--o:0.63">&#10052;&#xFE0E;</span>
+    <span style="--x:86.5vw;--s:22px;--d:11.7s;--delay:-0.8s;--drift:-25px;--o:0.65">&#10052;&#xFE0E;</span>
+    <span style="--x:89.2vw;--s:26px;--d:11.6s;--delay:-0.0s;--drift:-25px;--o:0.69">&#10052;&#xFE0E;</span>
+    <span style="--x:95.6vw;--s:26px;--d:11.3s;--delay:-9.9s;--drift:40px;--o:0.52">&#10052;&#xFE0E;</span>
+    <span style="--x:97.3vw;--s:18px;--d:17.6s;--delay:-8.3s;--drift:-40px;--o:0.83">&#10052;&#xFE0E;</span>
+  </div>
+  <article class="readme">
+    <p class="flakes" aria-hidden="true">&#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E;</p>
+    <h1>Holiday Cheer: QHTA Staff Appreciation Drive</h1>
+
+    <!--<blockquote>A tenant-run holiday appreciation drive for the staff of Quebec House.</blockquote>-->
+
+    <!--<h2>About</h2>-->
+    <p>Your fellow residents are excited to announce the first-ever holiday appreciation drive, run entirely by the tenants of Quebec House. You can show your appreciation this holiday season by making one contribution that will be shared fairly among the maintenance, custodial, concierge, and package-handling staff of Quebec House.</p>
+
+    <p><strong>We believe it's important to be transparent so residents understand how distributions are calculated and who will receive gifts.</strong></p>
+
+      <p>Gifts will be shared evenly among staff based only on full-time or part-time status, regardless of tenure. Part-time employees will receive 75% of what full-time employees are gifted. We believe this allocation is clear and fair and reflects how tenants expect their year-end tips to be distributed.</p>
+
+    <!--<h2>Who it supports</h2>
+    <ul>
+      <li>Maintenance</li>
+      <li>Custodial</li>
+      <li>Concierge</li>
+      <li>Package handling</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>This fund is organized by the Quebec House Tenant Association (QHTA). It is separate from the landlord's holiday gift fund.</li>
+      <li>Contributions are divided by share: full-time staff receive 1 share and part-time staff receive &frac34; share.</li>
+      <li>Contributions accepted: cash, check, or electronic payment.</li>
+    </ul>
+    -->
+
+    <h2>How to donate</h2>
+      <p>Donations can be made</p>
+    <ol>
+      <li>Physically via <strong>cash or check</strong> (written to Stephanie Woodrow), which you can either hand to a QHTA representative to get a receipt at one of our upcoming events, or slip under N-433 or S-____ and email <a href="mailto:qh.resident@gmail.com">qh.resident@gmail.com</a> with what you’ve left so we have a record</li>
+      <li>Virtually via <strong>PayPal or Venmo</strong> using the QR codes below</li>
+    </ol>
+    <p>We ask that if you generously decide to contribute, please do so by <strong>December 15</strong> so we can share our appreciation before holiday vacations.</p>
+      
+    <h2>Questions</h2>
+    <p>Please email <a href="mailto:qh.resident@gmail.com">qh.resident@gmail.com</a> with any questions</p>
+
+    <hr>
+    <p class="flakes" aria-hidden="true">&#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E;</p>
+    <p style="color: var(--muted); font-size: 0.875em; text-align: center;">Organized by the Quebec House Tenant Association. Join the tenant-run listserv <a href="https://quebechouse.groups.io/">here</a>.</p>
+  </article>
+</body>
+</html>
