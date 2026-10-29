@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quebec House Thank You Fund</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2328;
+      --muted: #59636e;
+      --border: #d1d9e0;
+      --code-bg: #f6f8fa;
+      --link: #0969da;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --muted: #9198a1;
+        --border: #3d444d;
+        --code-bg: #151b23;
+        --link: #4493f8;
+      }
+    }
+    :root { --page: #e3eefa; --snow: #7fb0e6; }
+    @media (prefers-color-scheme: dark) {
+      :root { --page: #070b14; --snow: #ffffff; }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: var(--page);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      font-size: 100%;
+      line-height: 1.5;
+    }
+    .readme {
+      position: relative;
+      z-index: 1;
+      max-width: 50rem;
+      margin: 0 auto;
+      padding: 2rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    /* Falling snowflakes */
+    .snow {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .snow span {
+      position: absolute;
+      top: -10vh;
+      left: var(--x);
+      font-size: var(--s);
+      color: var(--snow);
+      opacity: var(--o);
+      line-height: 1;
+      animation: fall var(--d) linear var(--delay) infinite;
+    }
+    @keyframes fall {
+      from { transform: translate(0, 0) rotate(0deg); }
+      50%  { transform: translate(var(--drift), 60vh) rotate(180deg); }
+      to   { transform: translate(0, 120vh) rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .snow { display: none; }
+    }
+    .flakes {
+      margin: 0 0 8px;
+      color: var(--link);
+      text-align: center;
+      letter-spacing: 0.6em;
+      font-size: 0.9em;
+      user-select: none;
+    }
+    h1, h2 {
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    h1 { font-size: 2em; margin: 0 0 16px; }
+    h2 { font-size: 1.5em; margin: 24px 0 16px; }
+    h3 { margin: 0 0 0.25rem; font-size: 1.1em; }    
+    p, ul, ol { margin: 0 0 16px; }
+    ul, ol { padding-left: 2em; }
+    dt { font-weight: 600; } 
+    dd { margin: 0 0 1rem 0; }
+    li + li { margin-top: 0.25em; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    blockquote {
+      margin: 0 0 16px;
+      padding: 0 1em;
+      color: var(--muted);
+      border-left: 0.25em solid var(--border);
+    }
+    .event {
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .event p { margin: 0 0 0.25rem; }
+    .event time { color: var(--muted); font-size: 0.9em; }
+    code {
+      padding: 0.2em 0.4em;
+      background: var(--code-bg);
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 85%;
+    }
+    .qr-codes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 0 0 1rem;
+    }
+    .qr-codes figure { margin: 0; text-align: center; }
+    .qr-codes img {
+      display: block;
+      width: 12rem;
+      max-width: 100%;
+      height: auto;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .qr-codes figcaption { margin-top: 0.25rem; font-weight: 600; }
+    html { scroll-behavior: smooth; }
+    h2 { scroll-margin-top: 4rem; }
+    .menu {
+      position: fixed;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 10;
+    }
+    .menu summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      list-style: none;
+      background: var(--bg);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .menu summary::-webkit-details-marker { display: none; }
+    .menu nav {
+      position: absolute;
+      top: 3.25rem;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      min-width: 13rem;
+      padding: 0.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .menu nav a { padding: 0.5rem 0.75rem; border-radius: 4px; }
+    .menu nav a:hover { background: var(--code-bg); text-decoration: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    hr { height: 1px; margin: 24px 0; background: var(--border); border: 0; }
+    @media (max-width: 40em) { .readme { padding: 1rem; } }
+  </style>
+</head>
+<body id="top">
+  <details class="menu">
+    <summary aria-label="Menu">&#9776;</summary>
+    <nav>
+      <a href="#donate">How to Donate</a>
+      <a href="#events">Upcoming QHTA Events</a>
+      <a href="#questions">Questions?</a>
+      <a href="#top">Back to top</a>
+    </nav>
+  </details>
+  <div class="snow" aria-hidden="true">
+    <span style="--x:1.4vw;--s:16px;--d:15.3s;--delay:-0.7s;--drift:-40px;--o:0.61">&#10052;&#xFE0E;</span>
+    <span style="--x:4.4vw;--s:26px;--d:13.4s;--delay:-1.2s;--drift:40px;--o:0.48">&#10052;&#xFE0E;</span>
+    <span style="--x:8.4vw;--s:22px;--d:11.7s;--delay:-6.6s;--drift:-25px;--o:0.73">&#10052;&#xFE0E;</span>
+    <span style="--x:13.7vw;--s:14px;--d:17.3s;--delay:-6.9s;--drift:-25px;--o:0.47">&#10052;&#xFE0E;</span>
+    <span style="--x:18.4vw;--s:18px;--d:15.6s;--delay:-8.4s;--drift:25px;--o:0.7">&#10052;&#xFE0E;</span>
+    <span style="--x:21.7vw;--s:14px;--d:17.4s;--delay:-11.1s;--drift:25px;--o:0.49">&#10052;&#xFE0E;</span>
+    <span style="--x:25.7vw;--s:26px;--d:11.7s;--delay:-2.4s;--drift:40px;--o:0.8">&#10052;&#xFE0E;</span>
+    <span style="--x:28.7vw;--s:22px;--d:15.0s;--delay:-3.7s;--drift:-25px;--o:0.76">&#10052;&#xFE0E;</span>
+    <span style="--x:31.9vw;--s:26px;--d:14.3s;--delay:-7.1s;--drift:25px;--o:0.78">&#10052;&#xFE0E;</span>
+    <span style="--x:35.9vw;--s:14px;--d:12.3s;--delay:-5.1s;--drift:25px;--o:0.52">&#10052;&#xFE0E;</span>
+    <span style="--x:40.4vw;--s:14px;--d:21.6s;--delay:-1.7s;--drift:25px;--o:0.6">&#10052;&#xFE0E;</span>
+    <span style="--x:43.8vw;--s:22px;--d:17.4s;--delay:-7.9s;--drift:-40px;--o:0.88">&#10052;&#xFE0E;</span>
+    <span style="--x:48.0vw;--s:30px;--d:11.7s;--delay:-8.6s;--drift:25px;--o:0.74">&#10052;&#xFE0E;</span>
+    <span style="--x:53.4vw;--s:22px;--d:14.1s;--delay:-5.4s;--drift:25px;--o:0.46">&#10052;&#xFE0E;</span>
+    <span style="--x:55.7vw;--s:16px;--d:17.7s;--delay:-8.7s;--drift:-25px;--o:0.8">&#10052;&#xFE0E;</span>
+    <span style="--x:58.5vw;--s:16px;--d:15.4s;--delay:-14.1s;--drift:40px;--o:0.49">&#10052;&#xFE0E;</span>
+    <span style="--x:63.3vw;--s:26px;--d:14.1s;--delay:-1.9s;--drift:40px;--o:0.84">&#10052;&#xFE0E;</span>
+    <span style="--x:66.6vw;--s:22px;--d:21.9s;--delay:-15.0s;--drift:40px;--o:0.88">&#10052;&#xFE0E;</span>
+    <span style="--x:70.1vw;--s:16px;--d:12.7s;--delay:-8.4s;--drift:-40px;--o:0.67">&#10052;&#xFE0E;</span>
+    <span style="--x:75.3vw;--s:18px;--d:14.1s;--delay:-2.1s;--drift:25px;--o:0.72">&#10052;&#xFE0E;</span>
+    <span style="--x:78.3vw;--s:16px;--d:18.6s;--delay:-9.6s;--drift:-40px;--o:0.66">&#10052;&#xFE0E;</span>
+    <span style="--x:83.8vw;--s:30px;--d:19.8s;--delay:-7.8s;--drift:40px;--o:0.63">&#10052;&#xFE0E;</span>
+    <span style="--x:86.5vw;--s:22px;--d:11.7s;--delay:-0.8s;--drift:-25px;--o:0.65">&#10052;&#xFE0E;</span>
+    <span style="--x:89.2vw;--s:26px;--d:11.6s;--delay:-0.0s;--drift:-25px;--o:0.69">&#10052;&#xFE0E;</span>
+    <span style="--x:95.6vw;--s:26px;--d:11.3s;--delay:-9.9s;--drift:40px;--o:0.52">&#10052;&#xFE0E;</span>
+    <span style="--x:97.3vw;--s:18px;--d:17.6s;--delay:-8.3s;--drift:-40px;--o:0.83">&#10052;&#xFE0E;</span>
+  </div>
+  <article class="readme">
+    <p class="flakes" aria-hidden="true">&#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E;</p>
+    <h1>Holiday Cheer: QHTA Staff Appreciation Drive</h1>
+
+    <!--<blockquote>A tenant-run holiday appreciation drive for the staff of Quebec House.</blockquote>-->
+
+    <!--<h2>About</h2>-->
+    <p>Your fellow residents are excited to announce the first-ever holiday appreciation drive run entirely by the tenants of Quebec House. You can show your appreciation this holiday season by making one contribution that will be shared fairly among Quebec House’s maintenance, custodial, concierge, and package room staff.</p>
+
+    <p><strong>We believe it's important to be transparent so residents understand how distributions are calculated and who will receive gifts.</strong></p>
+
+      <p>Gifts will be shared evenly among staff based only on full-time or part-time status, regardless of tenure. Part-time employees will receive 75% of what full-time employees are gifted. We believe this allocation is clear and fair and reflects how tenants expect their year-end tips to be distributed.</p>
+
+    <!--<h2>Who it supports</h2>
+    <ul>
+      <li>Maintenance</li>
+      <li>Custodial</li>
+      <li>Concierge</li>
+      <li>Package handling</li>
+    </ul>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>This fund is organized by the Quebec House Tenant Association (QHTA). It is separate from the landlord's holiday gift fund.</li>
+      <li>Contributions are divided by share: full-time staff receive 1 share and part-time staff receive &frac34; share.</li>
+      <li>Contributions accepted: cash, check, or electronic payment.</li>
+    </ul>
+    -->
+
+    <h2 id="donate">How to Donate</h2>
+      <p>Donations can be made</p>
+    <ol>
+      <li>Physically via <strong>cash or check</strong> (written to Stephanie Woodrow), which you can either hand to a QHTA representative to get a receipt at one of our upcoming events, or slip under N-433 or S-1019 and email <a href="mailto:qh.resident@gmail.com">qh.resident@gmail.com</a> with what you’ve left so we have a record</li>
+      <li>Virtually via <strong>PayPal or Venmo</strong> using the QR codes below</li>
+    </ol>
+    <div class="qr-codes">
+      <figure>
+        <img src="paypal-qr.png" alt="QR code to donate by PayPal">
+        <figcaption><a href="https://www.paypal.com/pool/9tT7K3mElK">PayPal</a></figcaption>
+      </figure>
+      <figure>
+        <img src="venmo-qr.png" alt="QR code to donate by Venmo">
+        <figcaption><a href="https://venmo.com/u/stephaniewoodrow">Venmo</a></figcaption>
+      </figure>
+    </div>
+
+    <p>We ask that if you generously decide to contribute, please do so by <strong>December 15</strong> so we can share our appreciation before holiday vacations.</p>
+
+    <h2 id="events">Upcoming QHTA Events</h2>
+
+    <article class="event">
+      <h3>Potluck Brunch</h3>
+      <p><time datetime="2026-11-14T10:30">Saturday, November 14, 10:30am</time> South club room (2nd floor)</p>
+      <p>Please bring a dish or drink to share with your neighbors!</p>
+    </article>
+
+    <article class="event">
+      <h3>Holiday Treat Potluck/Swap</h3>
+      <p><time>December TBD</time> South club room (2nd floor)</p>
+      <p>Please bring a treat to share with your neighbors!</p>
+    </article>
+    
+      
+    <h2 id="questions">Questions?</h2>
+    <p>Please email <a href="mailto:qh.resident@gmail.com">qh.resident@gmail.com</a> with any questions.</p>
+    <p>We've also collected some frequently asked questions below...</p>
+    <dl>
+      <dt>What's the difference between this QHTA fund and the QH gift fund?</dt>
+      <dd>The QH Gift Fund is actually created and operated entirely by Community Realty Company (CRC), the management company overseeing Quebec House. CRC's formula for distributing donations is heavily weighted toward long-tenured, full-time employees, and recipients include salaried employees in the leasing office. Although a resident's name appears on the flyers, that resident's role is limited to counting the money and signing the checks. The resident has no authority over the distribution formula or which employees receive gifts.</dd>
+
+      <dd>In the past, QHTA and individuals have requested information from both CRC and the resident regarding the distribution formula and a list of employees who receive gifts. These requests have been denied.</dd>
+
+      <dd>In contrast, the QHTA Staff Appreciation Drive was created entirely by residents, is administered through QHTA, and benefits only non-salaried employees who assist residents on a daily basis. Unlike CRC's fund, the Staff Appreciation Drive prioritizes transparency, with a clearly defined distribution formula and eligibility criteria.</dd>
+      
+      <dt>How can I be sure the organizer(s) don't run off with all the money?</dt>
+      <dd>The organizer, Stephanie Woodrow, has been actively involved in QHTA since its establishment and has organized multiple events involving the collection, management, and distribution of donations, all with full transparency, accountability, and no complaints.</dd>
+
+      <dd>Stephanie is working closely with QHTA officers throughout the collection and distribution process. She will share account statements with QHTA officers to allow for independent oversight and verification of funds collected and distributed.</dd>
+      
+      <dd>Residents donating by cash or check are encouraged to follow the instructions above to ensure QHTA has a record of every contribution. These measures are intended to provide transparency and accountability throughout the process.</dd>
+    
+    </dl>
+
+    <hr>
+    <p class="flakes" aria-hidden="true">&#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E; &#10052;&#xFE0E;</p>
+    <p style="color: var(--muted); font-size: 0.875em; text-align: center;">Organized by the Quebec House Tenant Association. Join the tenant-run listserv <a href="https://quebechouse.groups.io/">here</a>.</p>
+  </article>
+  <script>
+    document.querySelectorAll('.menu nav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        document.querySelector('.menu').removeAttribute('open');
+      });
+    });
+  </script>
+</body>
+</html>
